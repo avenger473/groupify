@@ -21,6 +21,8 @@ import android.widget.Toast;
 import com.example.android.materialpicker.R;
 
 import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -38,11 +40,11 @@ public class Groupify extends AppCompatActivity {
         TextView tv= (TextView)findViewById(R.id.path);
         Intent intent = getIntent();
 
-        String fp = intent.getStringExtra("path");
+        final String fp = intent.getStringExtra("path");
 
         tv.setText(fp);
         Toast.makeText(this, fp, Toast.LENGTH_SHORT).show();
-        //String lName = intent.getStringExtra("lastName");
+
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,9 +85,16 @@ public class Groupify extends AppCompatActivity {
 
 
                 InputStream is; String ids[];
-                is=getResources().openRawResource(R.raw.cont);
-                BufferedReader br=new BufferedReader(new InputStreamReader(is));
+                FileReader fr=null;
+                File fl= new File(fp);
+                try {
+                    fr = new FileReader(fl);
 
+                }
+                catch(Exception e){};
+                //is=getResources().openRawResource(R.raw.cont);
+
+                BufferedReader br=new BufferedReader(fr);
                 try
                 {
                     String csvL;
