@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <accessibility-service android:accessibilityEventTypes="typeViewClicked|typeViewFocused"
-    android:packageNames="com.example.android.MaterialPicker, com.whatsapp"
+    android:packageNames="com.example.android.materialpicker, com.whatsapp"
     android:accessibilityFeedbackType="feedbackHaptic"
     android:notificationTimeout="100"
-    android:settingsActivity="com.example.android.MaterialPicker.ServiceSettingsActivity"
+    android:settingsActivity="com.example.android.materialpicker.ServiceSettingsActivity"
     android:canRetrieveWindowContent="true"
     xmlns:android="http://schemas.android.com/apk/res/android" />

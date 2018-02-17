@@ -37,14 +37,12 @@ public class Groupify extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groupify);
         Button b=(Button)findViewById(R.id.button2);
-        TextView tv= (TextView)findViewById(R.id.path);
+       // Button b2= (Button)findViewById(R.id.button3) ;
+
+
         Intent intent = getIntent();
 
         final String fp = intent.getStringExtra("path");
-
-        tv.setText(fp);
-        Toast.makeText(this, fp, Toast.LENGTH_SHORT).show();
-
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +79,8 @@ public class Groupify extends AppCompatActivity {
 
                 String DisplayName;
                 String MobileNumber;
+               // String EmailId;
+
 
 
 
@@ -99,10 +99,13 @@ public class Groupify extends AppCompatActivity {
                 {
                     String csvL;
                     csvL=br.readLine();
+                    int count=0;
                     while((csvL=br.readLine())!=null){
                         ids=csvL.split(",");
                         DisplayName=ids[0];
+                        DisplayName= "__"+ DisplayName;
                         MobileNumber=ids[1];
+                        //EmailId=ids[2];
                         ArrayList<ContentProviderOperation> ops = new ArrayList < ContentProviderOperation > ();
 
                         ops.add(ContentProviderOperation.newInsert(
@@ -136,18 +139,25 @@ public class Groupify extends AppCompatActivity {
                                     .build());
                         }
 
+
+
                         //------------------------------------------------------ Home Numbers
 
 
                         // Asking the Contact provider to create a new contact
                         try {
                             getContentResolver().applyBatch(ContactsContract.AUTHORITY, ops);
+                            count++;
+
                         } catch (Exception e) {
                             e.printStackTrace();
                             Toast.makeText(Groupify.this, "Exception: " + e.getMessage(), Toast.LENGTH_LONG).show();
                         }
 
                     }
+                    String count_s= String.valueOf(count);
+                    Toast.makeText(Groupify.this, count_s + " contacts added", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(this, fp, Toast.LENGTH_SHORT).show();
                 }
                 catch(Exception e)
                 {

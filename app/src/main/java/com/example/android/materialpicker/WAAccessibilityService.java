@@ -1,3 +1,4 @@
+
 package com.example.android.materialpicker;
 
 import android.accessibilityservice.AccessibilityService;
@@ -27,7 +28,7 @@ public class WAAccessibilityService extends AccessibilityService {
 
         // Do something nifty with this text, like speak the composed string
         // back to the user.
-        Toast.makeText(this, eventText, Toast.LENGTH_SHORT).show();
+
 
     }
 
@@ -38,3 +39,4 @@ public class WAAccessibilityService extends AccessibilityService {
     }
 
 }
+

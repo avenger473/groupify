@@ -10,17 +10,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.materialpicker.Groupify">
 
-    <Button
-        android:text="Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="153dp"
-        android:id="@+id/button2" />
 
-    <TextView
+
+    <Button
+        android:text="ADD CONTACTS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/path"/>
+        android:layout_marginTop="162dp"
+        android:id="@+id/button2"
+        android:layout_below="@+id/path"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Groupify"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="33dp"
+        android:id="@+id/button3" />
 </RelativeLayout>

@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button button;
     ImageButton ib;
-    TextView textView, textView2;
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,13 +54,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         ib= (ImageButton)findViewById(R.id.imageButton);
-        textView2= (TextView)findViewById(R.id.textView2);
+
         if (requestCode == 1000 && resultCode == RESULT_OK) {
              String filePath = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH);
             // Do anything with file
             textView.setText(filePath);
             final String fp= filePath;
-            textView2.setText(fp);
+
 
             ib.setOnClickListener(new View.OnClickListener() {
                 @Override
